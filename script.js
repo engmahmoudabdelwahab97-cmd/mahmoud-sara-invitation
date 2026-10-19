@@ -7,6 +7,10 @@
   document.title = `${cfg.groomName || "Mahmoud"} & ${bride} — Engagement Invitation`;
   const mapLink = document.getElementById("mapLink");
   if (mapLink && cfg.mapUrl) mapLink.href = cfg.mapUrl;
+  const venueName = document.getElementById("venueName");
+  if (venueName && cfg.venueName) venueName.textContent = cfg.venueName;
+  const venueAddress = document.getElementById("venueAddress");
+  if (venueAddress && cfg.venueAddress) venueAddress.textContent = cfg.venueAddress;
 
   document.getElementById("openInvitation").addEventListener("click", () => {
     document.getElementById("invitation").scrollIntoView({behavior:"smooth"});
@@ -33,7 +37,7 @@
   musicToggle.addEventListener("click", async () => {
     if (music.paused) {
       try { await music.play(); musicToggle.innerHTML = "♫ <span>Pause</span>"; }
-      catch { alert("Add your music file as assets/music.mp3, then try again."); }
+      catch { alert("The music file music.mp3 was not found. Make sure it is uploaded beside index.html."); }
     } else { music.pause(); musicToggle.innerHTML = "♫ <span>Music</span>"; }
   });
 

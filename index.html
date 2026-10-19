@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f4ec">
-  <meta name="description" content="An invitation to celebrate the engagement of Mahmoud & [Bride's Name].">
-  <title>Mahmoud & [Bride's Name] — Engagement Invitation</title>
+  <meta name="description" content="An invitation to celebrate the engagement of Mahmoud & Sara on Friday, 23 October 2026 at 5:00 PM.">
+  <title>Mahmoud & Sara — Engagement Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
       <div class="monogram">M <span>&</span> ♡</div>
       <h1>Mahmoud <em>&</em><br><span id="brideCover">[Bride's Name]</span></h1>
       <div class="gold-rule"><span>✧</span></div>
-      <p class="cover-date">FRIDAY <span>·</span> 23 OCTOBER 2026</p>
+      <p class="cover-date">FRIDAY <span>·</span> 23 OCTOBER 2026 <span>·</span> 5:00 PM</p>
       <button class="open-invitation" id="openInvitation">Open Invitation <span>↓</span></button>
       <p class="tiny-note">A new chapter begins…</p>
       <div class="ornament bottom-ornament">✦</div>
@@ -44,7 +44,7 @@
         <div><strong id="minutes">--</strong><span>Minutes</span></div>
         <div><strong id="seconds">--</strong><span>Seconds</span></div>
       </div>
-      <p class="date-caption">FRIDAY, 23 OCTOBER 2026</p>
+      <p class="date-caption">FRIDAY, 23 OCTOBER 2026 · 5:00 PM (CAIRO TIME)</p>
     </section>
 
     <section class="details section-pad">
@@ -54,27 +54,24 @@
         <div class="detail-icon">✧</div>
         <p class="detail-label">THE DATE</p>
         <h3>Friday, 23 October 2026</h3>
+        <p class="detail-note">5:00 PM</p>
         <p class="detail-note">We can’t wait to celebrate with you.</p>
         <div class="divider"></div>
         <div class="detail-icon">⌖</div>
         <p class="detail-label">THE VENUE</p>
-        <h3>Valentine Yacht Elmanial</h3>
-        <p class="detail-note">El Manial, Cairo, Egypt</p>
-        <a class="outline-button" id="mapLink" href="https://www.google.com/maps/search/?api=1&query=Valentine+Yacht+Elmanial" target="_blank" rel="noopener">Open in Google Maps ↗</a>
-        <p class="tiny-note">Please check the map pin before sharing the invitation.</p>
+        <h3 id="venueName">Valentine Yacht Elmanial</h3>
+        <p class="detail-note" id="venueAddress">El Manial, Cairo, Egypt</p>
+        <a class="outline-button" id="mapLink" href="https://maps.app.goo.gl/QEK3DD9neGLsyHYf7" target="_blank" rel="noopener">Open in Google Maps ↗</a>
       </div>
     </section>
 
     <section class="gallery-section section-pad">
-      <p class="eyebrow">LITTLE MOMENTS, BIG LOVE</p>
-      <h2>Our <em>memories</em></h2>
-      <p class="section-note">Add your favorite photos to make this invitation yours.</p>
-      <div class="gallery">
-        <div class="photo photo-one"><span>♡</span></div>
-        <div class="photo photo-two"><span>✧</span></div>
-        <div class="photo photo-three"><span>♡</span></div>
-      </div>
-      <p class="tiny-note">Replace the sample photo panels with your own pictures in the assets folder.</p>
+      <p class="eyebrow">MADE WITH LOVE</p>
+      <h2>A little <em>keepsake</em></h2>
+      <p class="section-note">A special invitation for Mahmoud &amp; Sara.</p>
+      <figure class="invitation-poster-frame">
+        <img class="invitation-poster" src="invitation-poster.png" alt="Mahmoud and Sara engagement invitation keepsake" loading="lazy">
+      </figure>
     </section>
 
     <section class="rsvp-section section-pad">
@@ -118,7 +115,7 @@
   </main>
   <button id="musicToggle" class="music-toggle" aria-label="Play or pause music" title="Play or pause music">♫ <span>Music</span></button>
   <audio id="bgMusic" loop preload="none">
-    <source src="assets/music.mp3" type="audio/mpeg">
+    <source src="music.mp3" type="audio/mpeg">
   </audio>
   <script src="config.js"></script>
   <script src="script.js"></script>
