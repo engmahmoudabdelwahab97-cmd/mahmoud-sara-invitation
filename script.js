@@ -12,10 +12,18 @@
   const venueAddress = document.getElementById("venueAddress");
   if (venueAddress && cfg.venueAddress) venueAddress.textContent = cfg.venueAddress;
 
-  document.getElementById("openInvitation").addEventListener("click", () => {
-    // This click is a user gesture, so it can start audio in browsers that block autoplay.
+  const openInvitation = document.getElementById("openInvitation");
+  openInvitation.addEventListener("click", () => {
+    // The cover is a true entry gate: reveal the rest only after this deliberate click.
+    document.body.classList.add("invitation-open");
+    openInvitation.setAttribute("aria-expanded", "true");
+
+    // This direct user gesture is the best opportunity to start audio on mobile browsers.
     startMusic();
-    document.getElementById("invitation").scrollIntoView({behavior:"smooth"});
+
+    window.setTimeout(() => {
+      document.getElementById("invitation").scrollIntoView({behavior:"smooth", block:"start"});
+    }, 120);
   });
 
   const target = new Date(cfg.eventDate || "2026-10-23T00:00:00").getTime();
@@ -57,18 +65,7 @@
     }
   }
 
-  // Attempt to play as soon as the invitation is opened. Some browsers require a tap first.
-  startMusic();
-
-  // If autoplay was blocked, start music on the visitor's first interaction anywhere on the page.
-  function startOnFirstInteraction(event) {
-    if (event.target && event.target.closest && event.target.closest("#musicToggle")) return;
-    if (music.paused) startMusic();
-    document.removeEventListener("pointerdown", startOnFirstInteraction);
-    document.removeEventListener("keydown", startOnFirstInteraction);
-  }
-  document.addEventListener("pointerdown", startOnFirstInteraction, { passive: true });
-  document.addEventListener("keydown", startOnFirstInteraction);
+  // No autoplay before the guest presses “Open Invitation”. That button is the intentional entry point.
 
   music.addEventListener("play", () => updateMusicButton(true));
   music.addEventListener("pause", () => updateMusicButton(false));

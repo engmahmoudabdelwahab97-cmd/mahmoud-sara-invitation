@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f4ec">
+  <meta name="theme-color" content="#0d0e12">
   <meta name="description" content="An invitation to celebrate the engagement of Mahmoud & Sara on Friday, 23 October 2026 at 5:00 PM.">
   <title>Mahmoud & Sara — Engagement Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
       <h1>Mahmoud <em>&</em><br><span id="brideCover">[Bride's Name]</span></h1>
       <div class="gold-rule"><span>✧</span></div>
       <p class="cover-date">FRIDAY <span>·</span> 23 OCTOBER 2026 <span>·</span> 5:00 PM</p>
-      <button class="open-invitation" id="openInvitation">Open Invitation <span>↓</span></button>
+      <button class="open-invitation" id="openInvitation" aria-controls="invitation" aria-expanded="false">Open Invitation <span>↓</span></button>
       <p class="tiny-note">A new chapter begins…</p>
       <div class="ornament bottom-ornament">✦</div>
     </section>
@@ -108,7 +108,7 @@
     </footer>
   </main>
   <button id="musicToggle" class="music-toggle" aria-label="Play or pause music" title="Play or pause music">♫ <span>Music</span></button>
-  <audio id="bgMusic" loop preload="auto" autoplay>
+  <audio id="bgMusic" loop preload="auto">
     <source src="music.mp3" type="audio/mpeg">
   </audio>
   <script src="config.js"></script>
