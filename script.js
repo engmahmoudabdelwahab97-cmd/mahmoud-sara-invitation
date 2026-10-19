@@ -13,6 +13,8 @@
   if (venueAddress && cfg.venueAddress) venueAddress.textContent = cfg.venueAddress;
 
   document.getElementById("openInvitation").addEventListener("click", () => {
+    // This click is a user gesture, so it can start audio in browsers that block autoplay.
+    startMusic();
     document.getElementById("invitation").scrollIntoView({behavior:"smooth"});
   });
 
@@ -34,11 +36,51 @@
 
   const music = document.getElementById("bgMusic");
   const musicToggle = document.getElementById("musicToggle");
+
+  function updateMusicButton(playing, blocked = false) {
+    musicToggle.classList.toggle("is-playing", playing);
+    musicToggle.innerHTML = playing ? "♫ <span>Pause</span>" : (blocked ? "♫ <span>Tap for music</span>" : "♫ <span>Music</span>");
+    musicToggle.setAttribute("aria-label", playing ? "Pause music" : "Play music");
+    musicToggle.setAttribute("title", playing ? "Pause music" : "Play music");
+  }
+
+  async function startMusic() {
+    if (!music.paused) { updateMusicButton(true); return true; }
+    try {
+      await music.play();
+      updateMusicButton(true);
+      return true;
+    } catch (err) {
+      // Autoplay with sound is blocked by some browsers until the visitor interacts.
+      updateMusicButton(false, true);
+      return false;
+    }
+  }
+
+  // Attempt to play as soon as the invitation is opened. Some browsers require a tap first.
+  startMusic();
+
+  // If autoplay was blocked, start music on the visitor's first interaction anywhere on the page.
+  function startOnFirstInteraction(event) {
+    if (event.target && event.target.closest && event.target.closest("#musicToggle")) return;
+    if (music.paused) startMusic();
+    document.removeEventListener("pointerdown", startOnFirstInteraction);
+    document.removeEventListener("keydown", startOnFirstInteraction);
+  }
+  document.addEventListener("pointerdown", startOnFirstInteraction, { passive: true });
+  document.addEventListener("keydown", startOnFirstInteraction);
+
+  music.addEventListener("play", () => updateMusicButton(true));
+  music.addEventListener("pause", () => updateMusicButton(false));
+
   musicToggle.addEventListener("click", async () => {
     if (music.paused) {
-      try { await music.play(); musicToggle.innerHTML = "♫ <span>Pause</span>"; }
-      catch { alert("The music file music.mp3 was not found. Make sure it is uploaded beside index.html."); }
-    } else { music.pause(); musicToggle.innerHTML = "♫ <span>Music</span>"; }
+      const ok = await startMusic();
+      if (!ok) updateMusicButton(false, true);
+    } else {
+      music.pause();
+      updateMusicButton(false);
+    }
   });
 
   function whatsappUrl(message) {
