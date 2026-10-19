@@ -6,6 +6,6 @@ window.INVITATION_CONFIG = {
   eventTime: "5:00 PM",
   venueName: "Valentine Yacht Elmanial",
   venueAddress: "El Manial, Cairo, Egypt",
-  whatsappNumber: "201097197582",
+  whatsappNumber: "201143288561",
   mapUrl: "https://maps.app.goo.gl/QEK3DD9neGLsyHYf7"
 };

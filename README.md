@@ -17,7 +17,6 @@ Keep these files together in the root of your GitHub repository:
 - `config.js`
 - `music.mp3`
 - `invitation-poster.png`
-- `og-image.jpg` (1200×630 social-sharing preview image)
 
 ## Publish or update on Vercel
 Upload the files above to your GitHub repository, replacing the earlier versions, and commit the changes. Vercel should redeploy automatically if the GitHub repository is already connected.
@@ -26,6 +25,3 @@ Upload the files above to your GitHub repository, replacing the earlier versions
 - Music is attempted at the click of **Open Invitation**, which is usually accepted as a user gesture. Device/browser settings may still affect playback.
 - RSVP and wishes open WhatsApp with a prefilled message; they are not stored in a database.
 - Replace the WhatsApp number, date or venue in `config.js` if details change.
-
-## WhatsApp / social link preview
-The Open Graph and Twitter meta tags in `index.html` use the live Vercel URL and `og-image.jpg`. Upload both the updated HTML and images, then wait for Vercel deployment. WhatsApp may cache an older preview for a while.
