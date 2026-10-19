@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f4ec">
+  <meta name="description" content="An invitation to celebrate the engagement of Mahmoud & [Bride's Name].">
+  <title>Mahmoud & [Bride's Name] — Engagement Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <main>
+    <section class="cover" id="cover">
+      <div class="ornament top-ornament">✦</div>
+      <p class="eyebrow">WITH LOVE AND BLESSINGS</p>
+      <p class="small-caps">WE INVITE YOU TO CELEBRATE</p>
+      <div class="monogram">M <span>&</span> ♡</div>
+      <h1>Mahmoud <em>&</em><br><span id="brideCover">[Bride's Name]</span></h1>
+      <div class="gold-rule"><span>✧</span></div>
+      <p class="cover-date">FRIDAY <span>·</span> 23 OCTOBER 2026</p>
+      <button class="open-invitation" id="openInvitation">Open Invitation <span>↓</span></button>
+      <p class="tiny-note">A new chapter begins…</p>
+      <div class="ornament bottom-ornament">✦</div>
+    </section>
+
+    <section class="intro section-pad" id="invitation">
+      <p class="eyebrow">A BEAUTIFUL BEGINNING</p>
+      <h2>Two hearts,<br><em>one promise.</em></h2>
+      <p class="intro-copy">With our families’ love and blessings, we would be delighted to have you with us as we celebrate the beginning of our journey together.</p>
+      <div class="arabic-line" dir="rtl">بكل الحب، نتشرف بدعوتكم لمشاركتنا فرحتنا</div>
+      <div class="names-line">Mahmoud <span>♡</span> <b id="brideIntro">[Bride's Name]</b></div>
+    </section>
+
+    <section class="countdown-section section-pad">
+      <p class="eyebrow">THE DAY IS ALMOST HERE</p>
+      <h2>Counting down to <em>our day</em></h2>
+      <div class="countdown" aria-label="Countdown">
+        <div><strong id="days">--</strong><span>Days</span></div>
+        <div><strong id="hours">--</strong><span>Hours</span></div>
+        <div><strong id="minutes">--</strong><span>Minutes</span></div>
+        <div><strong id="seconds">--</strong><span>Seconds</span></div>
+      </div>
+      <p class="date-caption">FRIDAY, 23 OCTOBER 2026</p>
+    </section>
+
+    <section class="details section-pad">
+      <p class="eyebrow">SAVE THE DATE</p>
+      <h2>Join us for <em>the celebration</em></h2>
+      <div class="details-card">
+        <div class="detail-icon">✧</div>
+        <p class="detail-label">THE DATE</p>
+        <h3>Friday, 23 October 2026</h3>
+        <p class="detail-note">We can’t wait to celebrate with you.</p>
+        <div class="divider"></div>
+        <div class="detail-icon">⌖</div>
+        <p class="detail-label">THE VENUE</p>
+        <h3>Valentine Yacht Elmanial</h3>
+        <p class="detail-note">El Manial, Cairo, Egypt</p>
+        <a class="outline-button" id="mapLink" href="https://www.google.com/maps/search/?api=1&query=Valentine+Yacht+Elmanial" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+        <p class="tiny-note">Please check the map pin before sharing the invitation.</p>
+      </div>
+    </section>
+
+    <section class="gallery-section section-pad">
+      <p class="eyebrow">LITTLE MOMENTS, BIG LOVE</p>
+      <h2>Our <em>memories</em></h2>
+      <p class="section-note">Add your favorite photos to make this invitation yours.</p>
+      <div class="gallery">
+        <div class="photo photo-one"><span>♡</span></div>
+        <div class="photo photo-two"><span>✧</span></div>
+        <div class="photo photo-three"><span>♡</span></div>
+      </div>
+      <p class="tiny-note">Replace the sample photo panels with your own pictures in the assets folder.</p>
+    </section>
+
+    <section class="rsvp-section section-pad">
+      <p class="eyebrow">KINDLY REPLY</p>
+      <h2>Will you <em>join us?</em></h2>
+      <p class="section-note">Your presence would mean the world to us.</p>
+      <form id="rsvpForm" class="rsvp-form">
+        <label for="guestName">Your name</label>
+        <input id="guestName" name="guestName" required placeholder="Enter your name">
+        <label for="guestCount">Number of guests</label>
+        <select id="guestCount" name="guestCount">
+          <option value="1">1 guest</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5+">5+ guests</option>
+        </select>
+        <div class="rsvp-buttons">
+          <button type="submit" class="gold-button" data-answer="yes">Joyfully Accept</button>
+          <button type="button" id="declineButton" class="outline-button">Regretfully Decline</button>
+        </div>
+        <p class="tiny-note">This opens WhatsApp with your reply ready to send; it does not submit automatically.</p>
+      </form>
+    </section>
+
+    <section class="wishes-section section-pad">
+      <p class="eyebrow">LEAVE A LITTLE LOVE</p>
+      <h2>Send us your <em>wishes</em></h2>
+      <form id="wishForm" class="rsvp-form">
+        <label for="wishName">Your name</label>
+        <input id="wishName" required placeholder="Your name">
+        <label for="wishMessage">Your message</label>
+        <textarea id="wishMessage" required rows="3" placeholder="Write a lovely wish…"></textarea>
+        <button class="gold-button" type="submit">Send your wishes ↗</button>
+        <p class="tiny-note">Messages are sent through WhatsApp. To collect wishes automatically on the website, connect a form/database service before publishing.</p>
+      </form>
+    </section>
+
+    <footer>
+      <div class="footer-heart">♡</div>
+      <p>WITH LOVE,</p>
+      <div class="footer-names">Mahmoud <span>&</span> <b id="brideFooter">[Bride's Name]</b></div>
+      <p class="copyright">MADE WITH LOVE · 2026</p>
+    </footer>
+  </main>
+  <button id="musicToggle" class="music-toggle" aria-label="Play or pause music" title="Play or pause music">♫ <span>Music</span></button>
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
