@@ -103,11 +103,55 @@
     const url = whatsappUrl(`Engagement RSVP for ${cfg.groomName || "Mahmoud"} & ${bride}\nName: ${name}\nGuests: ${count}\nReply: Regretfully Decline`);
     if (url) window.open(url, "_blank", "noopener");
   });
-  document.getElementById("wishForm").addEventListener("submit", e => {
+  const wishForm = document.getElementById("wishForm");
+  const wishStatus = document.getElementById("wishStatus");
+  const wishSubmit = document.getElementById("wishSubmit");
+
+  wishForm.addEventListener("submit", async e => {
     e.preventDefault();
     const name = document.getElementById("wishName").value.trim();
     const wish = document.getElementById("wishMessage").value.trim();
-    const url = whatsappUrl(`A wish for ${cfg.groomName || "Mahmoud"} & ${bride}\nFrom: ${name}\nMessage: ${wish}`);
-    if (url) window.open(url, "_blank", "noopener");
+    const honeypot = document.getElementById("wishWebsite");
+
+    // Ignore bot submissions that populate the hidden field.
+    if (honeypot && honeypot.value.trim()) {
+      wishStatus.textContent = "Thank you!";
+      wishForm.reset();
+      return;
+    }
+    if (!name || !wish) {
+      wishStatus.textContent = "Please enter your name and a message.";
+      return;
+    }
+    if (!cfg.wishesEndpoint || !/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec(?:\?.*)?$/.test(cfg.wishesEndpoint)) {
+      wishStatus.textContent = "The online guestbook still needs its one-time Google Sheets setup. The message has not been sent yet.";
+      return;
+    }
+
+    wishSubmit.disabled = true;
+    wishSubmit.textContent = "Sending…";
+    wishStatus.textContent = "Sending your wishes…";
+    try {
+      // text/plain avoids a CORS preflight; Apps Script writes the message into the linked Sheet.
+      await fetch(cfg.wishesEndpoint, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({
+          name,
+          message: wish,
+          groomName: cfg.groomName || "Mahmoud",
+          brideName: bride,
+          website: ""
+        })
+      });
+      wishForm.reset();
+      wishStatus.textContent = "Thank you for your lovely wishes! They have been submitted. ♡";
+    } catch (err) {
+      wishStatus.textContent = "Sorry, your message could not be submitted. Please try again in a moment.";
+    } finally {
+      wishSubmit.disabled = false;
+      wishSubmit.textContent = "Leave your wishes ♡";
+    }
   });
 })();

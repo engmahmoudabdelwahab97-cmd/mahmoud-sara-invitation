@@ -129,3 +129,8 @@ footer > p { color: var(--muted); }
   .open-invitation { animation-delay: .25s; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
 }
+
+/* Guestbook form feedback and a discreet anti-spam honeypot. */
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+.form-status { min-height: 1.4em; margin: 8px 0 0; color: var(--gold-light); font-size: 13px; line-height: 1.55; }
+.rsvp-form button:disabled { opacity: .65; cursor: wait; }
